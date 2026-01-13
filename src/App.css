@@ -1,0 +1,41 @@
+.App{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  
+}
+
+.color{
+background-color: rgba(0, 0, 0, 0.7);
+}
+
+.navBar{
+  width: 80%;
+  margin: 20px auto;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftBar{
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.btn{
+  border: none;
+  background-color: white;
+  margin-right: 10px;
+}
+
+.logout{
+  margin-left: 10px;
+  background-color: white;
+  padding: 5px 10px;
+}
+
+.btn:hover{
+  text-decoration: underline;
+}

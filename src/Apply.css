@@ -1,0 +1,40 @@
+.job{
+    width: 50%;
+    margin: auto;
+    border: 1px solid;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.heading, .avgPrice {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+}
+
+.username{
+    margin-top: 10px;
+}
+
+.avgPrice{
+    margin-top: 20px;
+}
+
+.projDesc{
+    margin-bottom: 20px;
+}
+
+.tag{
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.job:hover{
+    cursor: pointer;
+    background-color: rgb(227, 225, 225);
+}

@@ -1,0 +1,11 @@
+.input{
+    display: block;
+    height: 30px;
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.jobPost:hover{
+    background-color: rgb(217, 215, 215);
+    cursor: pointer;
+}
