@@ -68,7 +68,7 @@ function App() {
         </div>
         <div className='rightBar' >
           {username ? <>
-            <span> Hi {profile?.userInfo?.username}</span>
+            <span> Hi {username}</span>
             <button className="logout" onClick={handleLogout} >Logout</button>
           </> : <> 
           {isOpen ? <LoginModal  setIsOpen={setIsOpen} /> : <button className="btn"  onClick={handleLogin} > Login</button> }

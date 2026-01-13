@@ -12,7 +12,7 @@ function Apply() {
     console.log("LOL Apply called");
 
     const fetchJobs = async () => {
-      const res = await axios.get('https://backend-freelance-px5x.onrender.com//apply' , {withCredentials : true})
+      const res = await axios.get('https://backend-freelance-px5x.onrender.com/apply' , {withCredentials : true})
       setJobs(res.data)
       console.log(res.data);
       
