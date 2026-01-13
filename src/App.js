@@ -40,7 +40,7 @@ function App() {
 
     const fetchUsername = async () => {
       try{
-        const res = await axios.get('https://backend-freelance-px5x.onrender.com//profile' , {withCredentials:true})
+        const res = await axios.get('https://backend-freelance-px5x.onrender.com/profile' , {withCredentials:true})
         setUsername(res.data.userInfo.username)   
         setEmail(res.data.userInfo.email)     
       } catch{
