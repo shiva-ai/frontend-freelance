@@ -11,7 +11,7 @@ export const ProfileProvider = ({ children }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/profile" , {withCredentials:true});
+        const res = await axios.get("https://frontend-freelance-one.vercel.app/profile" , {withCredentials:true});
         setProfile(res.data);
       } catch (err) {
         console.error(err);
