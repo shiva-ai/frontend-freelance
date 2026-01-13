@@ -28,7 +28,7 @@ function App() {
   }
 
   const handleLogout = async() => {
-   const res =  await axios.post('https://backend-freelance-px5x.onrender.com//logout' , {} , {
+   const res =  await axios.post('https://backend-freelance-px5x.onrender.com/logout' , {} , {
       withCredentials : true
     })
     localStorage.removeItem('username')
