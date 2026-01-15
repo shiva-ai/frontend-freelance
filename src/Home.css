@@ -8,6 +8,10 @@
     box-shadow: 10px 10px 5px black;
 }
 
+.browseByCategory{
+
+}
+
 .searchTag{
     border: none;
     margin-left: 10px;
@@ -21,4 +25,14 @@
 
 .searchTag:focus-visible{
     outline: none;
+}
+
+@media (max-width : 480px) {
+    .browseByCategory{
+        text-align: center;
+    }
+
+    .searchBar{
+        width: 80%;
+    }
 }

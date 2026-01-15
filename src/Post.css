@@ -5,7 +5,24 @@
     margin-bottom: 15px;
 }
 
+.jobPost{
+    margin:20px; border:1px solid ; width:40%; padding:10px;
+}
+
 .jobPost:hover{
     background-color: rgb(217, 215, 215);
     cursor: pointer;
+}
+
+@media (max-width : 480px){
+    .inputFields{
+        width: fit-content;
+        margin: auto;
+        text-align: center;
+    }
+
+    .jobPost{
+        margin: 20px auto;
+        width: 75%;
+    }
 }

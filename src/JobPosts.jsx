@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProfile } from './context/ProfileContext';
+import api from './api/axios';
 
 function JobPosts() {
 
@@ -17,8 +18,8 @@ function JobPosts() {
   useEffect(() => {
 
     const fetchData = async () => {
-        const res = await axios.get(`https://backend-freelance-px5x.onrender.com/${item}` , { withCredentials : true})
-        const commentsData = await axios.get(`https://backend-freelance-px5x.onrender.com/${item}` ,  {withCredentials:true})
+        const res = await api.get(`/${item}`)
+        const commentsData = await api.get(`/${item}` )
         console.log(res);
         setJobData(res.data.jobData)
         setComments(commentsData?.data?.comments)
@@ -40,7 +41,7 @@ function JobPosts() {
   }
 
   const handleAddComment = async() => {
-    const res = await axios.post('https://backend-freelance-px5x.onrender.com/addcomment' , {comment : userComment , username : profile?.userInfo?.username , postId : item} , {withCredentials:true})
+    const res = await api.post('/addcomment' , {comment : userComment , username : profile?.userInfo?.username , postId : item} )
     setUserComment('')
 
   }

@@ -1,6 +1,7 @@
 // context/ProfileContext.js
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import api from "../api/axios";
 
 const ProfileContext = createContext();
 
@@ -11,7 +12,7 @@ export const ProfileProvider = ({ children }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("https://backend-freelance-px5x.onrender.com/profile" , {withCredentials:true});
+        const res = await api.get("/profile" );
         setProfile(res.data);
       } catch (err) {
         console.error(err);

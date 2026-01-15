@@ -9,6 +9,7 @@ import JobPosts from "./JobPosts";
 import SignUpModal from "./SignUpModal";
 import axios from "axios";
 import { useProfile } from "./context/ProfileContext";
+import api from "./api/axios";
 
 function App() {
 
@@ -28,9 +29,7 @@ function App() {
   }
 
   const handleLogout = async() => {
-   const res =  await axios.post('https://backend-freelance-px5x.onrender.com/logout' , {} , {
-      withCredentials : true
-    })
+   const res =  await api.post('/logout' , {} )
     localStorage.removeItem('username')
     window.location.href = '/'
   }
@@ -40,7 +39,7 @@ function App() {
 
     const fetchUsername = async () => {
       try{
-        const res = await axios.get('https://backend-freelance-px5x.onrender.com/profile' , {withCredentials:true})
+        const res = await api.get('/profile' )
         setUsername(res.data.userInfo.username)   
         setEmail(res.data.userInfo.email)     
       } catch{

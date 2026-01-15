@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   position: fixed;
-  
+  overflow-y: auto; 
 }
 
 .color{
@@ -38,4 +38,16 @@ background-color: rgba(0, 0, 0, 0.7);
 
 .btn:hover{
   text-decoration: underline;
+}
+
+@media (max-width : 480px){
+  .navBar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .leftBar{
+    margin-bottom: 15px;
+  }
 }

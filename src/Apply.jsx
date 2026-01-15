@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Apply.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from './api/axios';
 
 function Apply() {
 
@@ -12,7 +13,7 @@ function Apply() {
     console.log("LOL Apply called");
 
     const fetchJobs = async () => {
-      const res = await axios.get('https://backend-freelance-px5x.onrender.com/apply' , {withCredentials : true})
+      const res = await api.get('/apply' )
       setJobs(res.data)
       console.log(res.data);
       

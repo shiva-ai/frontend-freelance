@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import './Post.css'
 import { useProfile } from './context/ProfileContext'
 import { useNavigate } from 'react-router-dom'
+import api from './api/axios'
 
 function Post() {
 
@@ -20,7 +21,7 @@ function Post() {
   useEffect(() => {
 
     const fetchPostsByUser = async () => {
-      const res = await axios.get('https://backend-freelance-px5x.onrender.com/jobsbyuser' , {withCredentials:true})
+      const res = await api.get('/jobsbyuser' )
       setPosts( res.data.posts)
       console.log(posts);
       
@@ -33,7 +34,7 @@ function Post() {
 
     const token = localStorage.getItem("token")
 
-    const res = await axios.post('https://backend-freelance-px5x.onrender.com/postajob'  , {
+    const res = await api.post('/postajob'  , {
       jobTitle : title,
       jobDesc : desc,
       cost,
@@ -41,7 +42,7 @@ function Post() {
       email : profile.userInfo.email,
       username : profile.userInfo.username,
 
-    } ,{withCredentials: true})
+    } )
 
     // const data = await res.json()
     if(res?.err?.name === "TokenExpiredError"){
@@ -65,18 +66,21 @@ function Post() {
 
   return (
     <div>
-      <input type='text' placeholder='Title of the Job' value={title} onChange={(e) => {setTitle(e.target.value)}} className='input' />
+      <div className='inputFields' >
+          <input type='text' placeholder='Title of the Job' value={title} onChange={(e) => {setTitle(e.target.value)}} className='input' />
       <input type='text' placeholder='Description of the Job' value={desc} onChange={(e) => {setDesc(e.target.value)}} className='input' />
       <input type='text' placeholder='Cost of the Job' value={cost} onChange={(e) => {setCost(e.target.value)}} className='input' />
       <input type='text' placeholder='Add a Tag' value={tag} onChange={(e) => {setTag(e.target.value)}}  className='input' />
       {tag === '' ? <></> : <button onClick={handleAddTag} >Add another Tag</button>}
       <div><button onClick={getProtectedData } >Post</button></div>
 
+      </div>
+      
       <div className='createdPosts' >
         <div style={{fontWeight:'600', margin:'20px',}} >Posts Created By You Will Appear Below</div>
         {posts.length ? posts?.map((post) => {
           return(
-            <div className='jobPost' style={{margin:'20px', border:'1px solid' , width:'40%', padding:'10px'}} key={post._id}
+            <div className='jobPost'  key={post._id}
               onClick={() => {navigate(`/jobs/${post._id}`)}}
             >
               <div style={{fontWeight:'600', }} >{post.jobTitle}</div>
